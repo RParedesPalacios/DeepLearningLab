@@ -42,7 +42,9 @@ model.add(Dense(num_classes, activation='softmax'))
 model.summary()
 
 
-# Higher Learning rates!!
+################################
+# Note the higher learning rate
+################################
 sgd=SGD(lr=0.1, decay=1e-6, momentum=0.9)
 
 model.compile(loss='categorical_crossentropy',

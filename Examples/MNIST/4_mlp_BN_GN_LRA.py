@@ -49,16 +49,15 @@ model.add(Dense(num_classes, activation='softmax'))
 model.summary()
 
 
-# Higher Learning rates!!
 sgd=SGD(lr=0.1, decay=0.0, momentum=0.0)
 
 def scheduler(epoch):
     if epoch < 2:
         return .1
     elif epoch < 50:
-	    return 0.0
+	    return 0.01
     else:
-	    return .001
+	    return 0.001
 
 set_lr = LRS(scheduler)
 
