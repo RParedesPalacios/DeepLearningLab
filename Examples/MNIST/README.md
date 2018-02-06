@@ -7,6 +7,7 @@ Some Keras examples over the MNIST dataset
 Basic MNIST example with a NN with fully conected two layers. This first example show a very basic NN with two hidden layers. No regularization or normalization is performed. 
 
 Python code: [here](1_mlp_basic.py)
+
 Jupyter Book: [here](1_mlp_basic.ipynb)
 
 ## Example 2
@@ -21,7 +22,7 @@ The same configuration than exercises 2 adding a gaussian noise regularizer.
 
 Python code: [here](3_mlp_BN_GN.py)
 
-## Example 3
+## Example 4
 
 The same configuration than exercises 3 adding learning rate annealing (learning rate scheduler).
 
