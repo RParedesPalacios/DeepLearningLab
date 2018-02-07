@@ -55,9 +55,9 @@ def scheduler(epoch):
     if epoch < 2:
         return .1
     elif epoch < 50:
-	    return 0.01
+        return 0.01
     else:
-	    return 0.001
+        return 0.001
 
 set_lr = LRS(scheduler)
 

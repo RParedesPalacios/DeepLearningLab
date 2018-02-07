@@ -52,7 +52,7 @@ sgd=SGD(lr=0.1, decay=1e-6, momentum=0.9)
 
 model.compile(loss='categorical_crossentropy',
               optimizer=sgd,
-              metrics=['error'])
+              metrics=['accuracy'])
 
 history = model.fit(x_train, y_train,
                     batch_size=batch_size,
