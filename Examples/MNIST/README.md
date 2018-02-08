@@ -12,7 +12,7 @@ Jupyter Book: [here](1_mlp_basic.ipynb)
 
 ## Example 2
 
-The same configuration than exercises 1 badding Batch Normalization.
+The same configuration than exercises 1 adding Batch Normalization.
 
 Python code: [here](2_mlp_batchnorm.py)
 
