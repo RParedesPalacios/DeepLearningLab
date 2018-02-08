@@ -1,0 +1,17 @@
+# CIFAR 10 Exmaples
+
+Some Keras examples over the CIFAR10 dataset
+
+## Example 1
+
+Convolutional network with Batch Norma, Gaussian Noise regularizer and Learning Rate sceduler.
+
+Python code: [here](1_cifar_conv.py)
+
+## Example 2
+
+Data Augmentation is performed to increase virtually the training set using **known** transformations
+
+Python code: [here](2_cifar_DA.py)
+
+
