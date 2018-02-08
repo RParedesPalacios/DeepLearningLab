@@ -6,7 +6,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.optimizers import SGD
 
-batch_size = 128
+batch_size = 100
 epochs = 25
 num_classes=10
 
@@ -29,11 +29,15 @@ x_test /= 255
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
-# A two hidden layer of 512 MLP 
+# A three hidden layer of 1024
 model = Sequential()
-model.add(Dense(512, activation='relu', input_shape=(784,)))
-model.add(Dense(512, activation='relu'))
+
+model.add(Dense(1024, activation='relu', input_shape=(784,)))
+model.add(Dense(1024, activation='relu'))
+model.add(Dense(1024, activation='relu'))
+
 model.add(Dense(num_classes, activation='softmax'))
+#####
 
 model.summary()
 

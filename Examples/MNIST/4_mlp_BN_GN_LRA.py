@@ -5,7 +5,7 @@ from keras.callbacks import LearningRateScheduler as LRS
 
 from keras.datasets import mnist
 from keras.models import Sequential
-from keras.layers import Dense, Activation
+from keras.layers import Dense, Activation, Reshape
 from keras.layers.normalization import BatchNormalization as BN
 from keras.layers import GaussianNoise as GN
 from keras.optimizers import SGD
@@ -18,6 +18,8 @@ epochs = 75
 
 # the data, shuffled and split between train and test sets
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+print(x_train.shape)
 
 x_train = x_train.reshape(60000, 784)
 x_test = x_test.reshape(10000, 784)
@@ -36,14 +38,25 @@ y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
 model = Sequential()
-model.add(Dense(512, input_shape=(784,)))
+#model.add(Dense(512, input_shape=(784,)))
+model.add(Reshape(target_shape=(784,), input_shape=(784,)))
+model.add(GN(0.3))
+
+model.add(Dense(1024, input_shape=(784,)))
 model.add(BN())
 model.add(GN(0.3))
 model.add(Activation('relu'))
-model.add(Dense(512))
+
+model.add(Dense(1024, input_shape=(784,)))
 model.add(BN())
 model.add(GN(0.3))
 model.add(Activation('relu'))
+
+model.add(Dense(1024))
+model.add(BN())
+model.add(GN(0.3))
+model.add(Activation('relu'))
+
 model.add(Dense(num_classes, activation='softmax'))
 
 model.summary()
@@ -51,8 +64,9 @@ model.summary()
 
 sgd=SGD(lr=0.1, decay=0.0, momentum=0.0)
 
+## define a learning rate scheduler
 def scheduler(epoch):
-    if epoch < 2:
+    if epoch < 25:
         return .1
     elif epoch < 50:
         return 0.01
@@ -60,13 +74,14 @@ def scheduler(epoch):
         return 0.001
 
 set_lr = LRS(scheduler)
-
+###
 
 model.compile(loss='categorical_crossentropy',
               optimizer=sgd,
               metrics=['accuracy'])
 
 
+## Training, note the callbacks list
 history = model.fit(x_train, y_train,
                     batch_size=batch_size,
                     epochs=epochs,
@@ -74,6 +89,7 @@ history = model.fit(x_train, y_train,
                     validation_data=(x_test, y_test),
                     callbacks=[set_lr])
 
+## Test
 score = model.evaluate(x_test, y_test, verbose=0)
 
 print('Test loss:', score[0])

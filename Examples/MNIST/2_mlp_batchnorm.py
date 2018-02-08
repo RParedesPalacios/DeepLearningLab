@@ -9,7 +9,7 @@ from keras.optimizers import SGD
 
 batch_size = 100
 num_classes = 10
-epochs = 20
+epochs = 25
 
 # the data, shuffled and split between train and test sets
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -30,14 +30,23 @@ print(x_test.shape[0], 'test samples')
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
+
+## NN with BN
 model = Sequential()
-model.add(Dense(512, input_shape=(784,)))
+model.add(Dense(1024, input_shape=(784,)))
 model.add(BN())
 model.add(Activation('relu'))
-model.add(Dense(512))
+
+model.add(Dense(1024, input_shape=(784,)))
 model.add(BN())
 model.add(Activation('relu'))
+
+model.add(Dense(1024))
+model.add(BN())
+model.add(Activation('relu'))
+
 model.add(Dense(num_classes, activation='softmax'))
+##
 
 model.summary()
 
