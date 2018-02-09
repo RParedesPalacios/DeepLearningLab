@@ -32,6 +32,6 @@ Python code: [here](4_mlp_BN_GN_LRA.py)
 
 Finally, Data Augmentation is performed to increase virtually the training set using **known** transformations
 
-Python code: [here](5_mlp_BN_GN_LRA.py)
+Python code: [here](5_mlp_BN_GN_LRA_DA.py)
 
 
