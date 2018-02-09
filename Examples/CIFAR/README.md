@@ -1,4 +1,4 @@
-# CIFAR 10 Exmaples
+# CIFAR 10 Examples
 
 Some Keras examples over the CIFAR10 dataset
 
