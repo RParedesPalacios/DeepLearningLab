@@ -14,4 +14,10 @@ Data Augmentation is performed to increase virtually the training set using **kn
 
 Python code: [here](2_cifar_DA.py)
 
+## Example 3
+
+Data Augmentation with more options and feature normalization, note the testdatagen object to deal with feature normalization over test data
+
+Python code: [here](3_cifar_DA2.py)
+
 
