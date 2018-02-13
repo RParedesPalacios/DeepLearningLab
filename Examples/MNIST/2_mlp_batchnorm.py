@@ -37,7 +37,7 @@ model.add(Dense(1024, input_shape=(784,)))
 model.add(BN())
 model.add(Activation('relu'))
 
-model.add(Dense(1024, input_shape=(784,)))
+model.add(Dense(1024))
 model.add(BN())
 model.add(Activation('relu'))
 
