@@ -8,5 +8,4 @@ Jupyter Book: [here](1_time_series_lstm.ipynb)
 
 Some modifications can be done changing the LSTM layer by a SimpleRNN or GRU layers.
 
-
-
+![Time Series](timeseries.png)
