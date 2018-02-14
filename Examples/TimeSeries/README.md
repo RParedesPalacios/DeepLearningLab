@@ -1,4 +1,4 @@
-# Time series exmaple
+# Time series example
 
 A very basic LSTM example with keras. 
 
