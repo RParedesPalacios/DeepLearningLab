@@ -58,7 +58,7 @@ testdatagen.fit(x_train)
 ###########################################################
 
 
-## DEF A BLOCK CONV + BN + GN + CONV + BN + GN + MAXPOOL + CONV(1,1)
+## DEF A BLOCK CONV + BN + GN + CONV + BN + GN + MAXPOOL 
 def CBGN(model,filters,ishape=0):
   if (ishape!=0):
     model.add(Conv2D(filters, (3, 3), padding='same',
