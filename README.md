@@ -3,7 +3,7 @@ Some of the lab examples and exercises of my deep learning lectures.
 
 ## Examples
 
-In the [Examples](Examples/) section there are some examples for the [MNIST](Examples/MNIST), [CIFAR10](Examples/CIFAR) and [Time Series](Example/Timeseries) datasets.
+In the [Examples](Examples/) section there are some examples for the [MNIST](Examples/MNIST), [CIFAR10](Examples/CIFAR) and [Time Series](Examples/Timeseries) datasets.
 
 ## Exercises
 
