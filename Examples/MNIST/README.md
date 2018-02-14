@@ -6,9 +6,10 @@ Some Keras examples over the MNIST dataset
 
 Basic MNIST example with a NN with fully conected layers. This first example shows a very basic NN with three hidden layers (1024). No regularization or normalization is performed. 
 
+Python Notebook: [here](1_mlp_basic.ipynb)
+
 Python code: [here](1_mlp_basic.py)
 
-Jupyter Book: [here](1_mlp_basic.ipynb)
 
 ## Example 2
 
