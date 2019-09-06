@@ -31,7 +31,7 @@ In the following figure we show the implemented network indicating the different
 
 To understand the shortcuts, the residual connection between larger maps with smaller ones, 
 what we do is make a 1x1 convolution with stride 2. We can better understand these through the visualization in
-the following [link](https://ezyang.github.io/convolution-visualizer/index.html), setting the following parameters:
+the following [link](https://ezyang.github.io/convolution-visualizer/index.html), setting:
 + Input size = 8
 + Kernel size = 1
 + Padding = 0
