@@ -4,7 +4,8 @@ import keras
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.optimizers import SGD
+from tensorflow.keras.optimizers import SGD
+from keras.utils import np_utils
 
 batch_size = 100
 epochs = 25
@@ -26,8 +27,8 @@ x_train /= 255
 x_test /= 255
 
 # convert class vectors to binary class matrices
-y_train = keras.utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.to_categorical(y_test, num_classes)
+y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
+y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
 
 # A three hidden layer of 1024
 model = Sequential()
@@ -42,7 +43,7 @@ model.add(Dense(num_classes, activation='softmax'))
 model.summary()
 
 # Optimizer 
-sgd=SGD(lr=0.01, decay=1e-6, momentum=0.9)
+sgd=SGD(learning_rate=0.01, decay=1e-6, momentum=0.9)
 
 # Compile Model
 model.compile(loss='categorical_crossentropy',
