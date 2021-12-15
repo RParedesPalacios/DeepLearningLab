@@ -1,25 +1,26 @@
 from __future__ import print_function
 
 import keras
-from keras.callbacks import LearningRateScheduler as LRS
-
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Reshape
-from keras.layers.normalization import BatchNormalization as BN
+from keras.layers import BatchNormalization as BN
+from tensorflow.keras.optimizers import SGD
+from keras.utils import np_utils
 from keras.layers import GaussianNoise as GN
-from keras.optimizers import SGD
 
+from keras.callbacks import LearningRateScheduler as LRS
 
 
 batch_size = 100
-num_classes = 10
-epochs = 75
+epochs = 25
+num_classes=10
 
 # the data, shuffled and split between train and test sets
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
-print(x_train.shape)
+print('training set', x_train.shape)
+print('test set', x_test.shape)
 
 x_train = x_train.reshape(60000, 784)
 x_test = x_test.reshape(10000, 784)
@@ -30,15 +31,13 @@ x_test = x_test.astype('float32')
 x_train /= 255
 x_test /= 255
 
-print(x_train.shape[0], 'train samples')
-print(x_test.shape[0], 'test samples')
-
 # convert class vectors to binary class matrices
-y_train = keras.utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.to_categorical(y_test, num_classes)
+y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
+y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
+
+
 
 model = Sequential()
-#model.add(Dense(512, input_shape=(784,)))
 model.add(Reshape(target_shape=(784,), input_shape=(784,)))
 model.add(GN(0.3))
 
@@ -62,7 +61,7 @@ model.add(Dense(num_classes, activation='softmax'))
 model.summary()
 
 
-sgd=SGD(lr=0.1, decay=0.0, momentum=0.0)
+sgd=SGD(learning_rate=0.1, decay=0.0, momentum=0.0)
 
 ## define a learning rate scheduler
 def scheduler(epoch):
