@@ -1,12 +1,14 @@
 from __future__ import print_function
+
 import keras
 from keras.datasets import cifar10
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Conv2D, MaxPooling2D
-from keras.layers.normalization import BatchNormalization as BN
+from keras.layers import BatchNormalization as BN
 from keras.layers import GaussianNoise as GN
-from keras.optimizers import SGD
+from tensorflow.keras.optimizers import SGD
+from keras.utils import np_utils
 
 from keras.callbacks import LearningRateScheduler as LRS
 from keras.preprocessing.image import ImageDataGenerator
@@ -29,8 +31,9 @@ x_test /= 255
 print(x_train.shape)
 print(x_test.shape)
 
-y_train = keras.utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.to_categorical(y_test, num_classes)
+y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
+y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
+
 
 
 ## DEFINE A DATA AUGMENTATION GENERATOR
@@ -79,7 +82,7 @@ model.summary()
 
 
 ## OPTIM AND COMPILE
-opt = SGD(lr=0.1, decay=1e-6)
+opt = SGD(learning_rate=0.1, decay=1e-6)
 
 model.compile(loss='categorical_crossentropy',
               optimizer=opt,
@@ -98,7 +101,7 @@ set_lr = LRS(scheduler)
 
 
 ## TRAINING with DA and LRA
-history=model.fit_generator(datagen.flow(x_train, y_train,batch_size=batch_size),
+history=model.fit(datagen.flow(x_train, y_train,batch_size=batch_size),
                             steps_per_epoch=len(x_train) / batch_size, 
                             epochs=epochs,
                             validation_data=(x_test, y_test),
