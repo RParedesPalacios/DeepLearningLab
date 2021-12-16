@@ -16,12 +16,10 @@ divided into two sections according to the framework used: [Pytorch](https://pyt
   - [MNIST](Examples/Pytorch/MNIST)
   - [CIFAR10](Examples/Pytorch/CIFAR)
 
-## Exercises
 
-In the [Exercises](Exercises/) section there are some proposed exercises for the MNIST and CIFAR10 datasets.
 
 ## Recommendations
 
-Use [Googe Colab](https://colab.research.google.com) to run the experiments in virtual machines equiped with K80 GPUs just in case you don't have a GPU computer to run them.
+Use [Googe Colab](https://colab.research.google.com) to run the experiments in virtual machines equiped with K80 or P100 GPUs just in case you don't have a GPU computer to run them.
 
 Some questions about Google Colab? Check [this](https://towardsdatascience.com/fast-ai-lesson-1-on-google-colab-free-gpu-d2af89f53604) post 
