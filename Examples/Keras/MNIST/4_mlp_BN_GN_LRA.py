@@ -13,7 +13,7 @@ from keras.callbacks import LearningRateScheduler as LRS
 
 
 batch_size = 100
-epochs = 25
+epochs = 75
 num_classes=10
 
 # the data, shuffled and split between train and test sets
