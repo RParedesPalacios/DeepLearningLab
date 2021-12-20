@@ -4,7 +4,7 @@ Some Keras examples over the CIFAR10 dataset
 
 ## Example 1
 
-Convolutional network with Batch Norm, Gaussian Noise regularizer and Learning Rate sceduler.
+Convolutional network with Batch Norm, Gaussian Noise regularizer
 
 Python code: [here](1_cifar_conv.py)
 
