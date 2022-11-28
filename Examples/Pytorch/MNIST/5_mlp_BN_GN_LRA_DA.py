@@ -14,7 +14,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # ToTensor() - Converts a Image (H x W x C) in the range [0, 255] to a torch.FloatTensor of shape (C x H x W) in the range [0.0, 1.0]
 # APPLY SOME DATA AUGMENTATIONS -> HorizontalFLips + Translations + Rotations
 train_transforms = torchvision.transforms.Compose([torchvision.transforms.RandomHorizontalFlip(p=0.0),
-                                                   torchvision.transforms.RandomAffine(degrees=3, translate=(0.1, 0.1)),
                                                    torchvision.transforms.ToTensor()])
 
 train_set = torchvision.datasets.MNIST('.data/', train=True, download=True, transform=train_transforms)
@@ -35,7 +34,7 @@ print("Test set: {} samples - Max value: {} - Min value: {}".format(len(test_loa
 print("Example batch shape: {}".format(x_batch.shape))
 
 
-# There are no GaussianNoise Layer in Pytorch
+# There are no ianNoise Layer in Pytorch
 # https://discuss.pytorch.org/t/writing-a-simple-gaussian-noise-layer-in-pytorch/4694/4
 class GaussianNoise(nn.Module):
     """Gaussian noise regularizer.
