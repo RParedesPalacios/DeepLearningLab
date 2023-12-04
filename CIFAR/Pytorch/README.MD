@@ -1,0 +1,1 @@
+Pytorch version for CIFAR
