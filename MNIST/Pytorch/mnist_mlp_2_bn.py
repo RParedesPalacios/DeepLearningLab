@@ -83,7 +83,7 @@ class Net(nn.Module):
         x = self.classifier(x)
 
         if y != None:
-            loss = self.criterion(x, labels)
+            loss = self.criterion(x, y)
             return loss, x
         return x
 
