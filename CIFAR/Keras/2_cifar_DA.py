@@ -8,7 +8,6 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import BatchNormalization as BN
 from keras.layers import GaussianNoise as GN
 from tensorflow.keras.optimizers import SGD
-from keras.utils import np_utils
 
 from keras.callbacks import LearningRateScheduler as LRS
 from keras.preprocessing.image import ImageDataGenerator
@@ -31,8 +30,8 @@ x_test /= 255
 print(x_train.shape)
 print(x_test.shape)
 
-y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
+y_train = keras.utils.to_categorical(y_train, num_classes)
+y_test = keras.utils.to_categorical(y_test, num_classes)
 
 
 
