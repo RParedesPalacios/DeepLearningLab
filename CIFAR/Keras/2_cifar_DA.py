@@ -82,7 +82,7 @@ model.summary()
 
 
 ## OPTIM AND COMPILE
-opt = SGD(learning_rate=0.1, decay=1e-6)
+opt = SGD(learning_rate=0.1)
 
 model.compile(loss='categorical_crossentropy',
               optimizer=opt,
